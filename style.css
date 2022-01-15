@@ -722,5 +722,6 @@ footer span a:hover{
     .daily img{
         width: 300px;
         object-fit: contain;
+        margin-bottom:0;
     }
 }
