@@ -62,3 +62,31 @@ var typed=new Typed(".typing2",{
 
     })
 });
+const contactForm=document.querySelector(".contactForm"),
+nameU=contactForm.querySelector("#name"),
+email=contactForm.querySelector("#email"),
+subject=contactForm.querySelector(".subject"),
+msg=contactForm.querySelector(".msg"),
+sucessMsg=contactForm.querySelector(".sucessMsg");
+contactForm.onsubmit=(e)=>{
+    console.log(nameU.value);
+    console.log(email.value);
+    console.log(subject.value);
+    console.log(msg.value);
+    e.preventDefault();
+    var tempParams={
+        from_name:nameU.value,
+        email:email.value,
+        subject:subject.value,
+        message:msg.value
+
+    }
+    emailjs.send("service_w61oyow","template_s82h01k",tempParams)
+    .then(function(res){
+        sucessMsg.style.display="block";
+        nameU.value="";
+        email.value="";
+        subject.value="";
+        msg.value="";
+    })
+}
